@@ -29,6 +29,20 @@ namespace Api.Controllers
             }
         }
 
+        [HttpDelete("{id}")]
+        public ActionResult<bool> Eliminar([FromRoute] int id)
+        {
+            try
+            {
+                var eliminado = _service.EliminarProducto(id);
+                return NoContent();
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(new { error = ex.Message });
+            }
+        }
+
         [HttpGet]
         public ActionResult<IEnumerable<Producto>> ObtenerTodos()
             => Ok(_service.ListarProductos());

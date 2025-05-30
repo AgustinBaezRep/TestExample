@@ -14,6 +14,11 @@ namespace Api.Repositories
             return producto;
         }
 
+        public bool Delete(Producto producto)
+        {
+            return _productos.Remove(producto);
+        }
+
         public IEnumerable<Producto> GetAll()
         {
             return _productos.ToList();

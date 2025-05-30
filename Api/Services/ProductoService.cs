@@ -26,6 +26,15 @@ namespace Api.Services
             return productoCreado;
         }
 
+        public bool EliminarProducto(int id)
+        {
+            var producto = _repo.GetAll().FirstOrDefault(p => p.Id == id);
+            if (producto == null)
+                throw new ArgumentException($"No se encontró el producto con ID {id}.", nameof(id));
+
+            return _repo.Delete(producto);
+        }
+
         public IEnumerable<Producto> ListarProductos()
             => _repo.GetAll();
     }
