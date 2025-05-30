@@ -1,6 +1,6 @@
-﻿using Api.Entities;
-using Api.Repositories;
-using Api.Services;
+﻿using Api.Application.Services;
+using Api.Domain.Entities;
+using Api.Infrastructure.Repositories;
 using Moq;
 
 namespace Test

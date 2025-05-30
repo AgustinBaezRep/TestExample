@@ -1,13 +1,11 @@
-using Api.Repositories;
-using Api.Services;
+using Api;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<IProductoRepository, ProductoRepository>();
-builder.Services.AddScoped<IProductoService, ProductoService>();
+builder.Services.AddWebServices();
 
 var app = builder.Build();
 

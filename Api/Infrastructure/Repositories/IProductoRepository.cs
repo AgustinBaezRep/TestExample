@@ -1,6 +1,6 @@
-﻿using Api.Entities;
+﻿using Api.Domain.Entities;
 
-namespace Api.Repositories
+namespace Api.Infrastructure.Repositories
 {
     public interface IProductoRepository
     {
