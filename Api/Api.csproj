@@ -7,7 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.5.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Application\Products\Commands\EliminarProducto\" />
+    <Folder Include="Application\Products\Commands\ActualizarProducto\" />
+    <Folder Include="Application\Products\Queries\" />
+    <Folder Include="AddWebServices\" />
   </ItemGroup>
 
 </Project>

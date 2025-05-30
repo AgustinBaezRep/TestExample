@@ -1,7 +1,7 @@
-﻿using Api.Entities;
-using Api.Repositories;
+﻿using Api.Domain.Entities;
+using Api.Infrastructure.Repositories;
 
-namespace Api.Services
+namespace Api.Application.Services
 {
     public class ProductoService : IProductoService
     {

@@ -1,18 +1,23 @@
-﻿using Api.Entities;
-using Api.Services;
+﻿using Api.Application.Services;
+using Api.Domain.Entities;
+using Api.Mappings;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Api.Controllers
+namespace Api.Web.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
     public class ProductosController : ControllerBase
     {
         private readonly IProductoService _service;
+        private readonly ISender _sender;
 
-        public ProductosController(IProductoService service)
+        public ProductosController(IProductoService service
+            , ISender sender)
         {
             _service = service;
+            _sender = sender;
         }
 
         [HttpPost]
@@ -20,7 +25,9 @@ namespace Api.Controllers
         {
             try
             {
-                var creado = _service.CrearProducto(producto);
+                var productoCommand = producto.ToProductoCommand();
+                var creado = _sender.Send(productoCommand).Result;
+
                 return CreatedAtAction(nameof(ObtenerTodos), new { id = creado.Id }, creado);
             }
             catch (ArgumentException ex)

@@ -1,6 +1,6 @@
-﻿using Api.Entities;
+﻿using Api.Domain.Entities;
 
-namespace Api.Services
+namespace Api.Application.Services
 {
     public interface IProductoService
     {
